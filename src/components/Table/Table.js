@@ -26,7 +26,10 @@ class Table extends React.Component {
             return <tr className={this.getRowColor(job.jobPriority)} key={job.jobGUID}>
                     <td>{job.jobName}</td>
                     <td>{job.jobPriority}</td>
-                    <td>Actions</td>
+                    <td>
+                        <button onClick={()=>{ this.props.handleUpdateJobCallback(job.jobGUID,job.jobPriority)}}>Edit</button>
+                        <button onClick={()=>{ this.props.handleDeleteJobCallback(job.jobGUID)}}>Delete</button>
+                    </td>
                 </tr>
         })
     }

@@ -37,6 +37,17 @@ class App extends React.Component {
 
   }
 
+  handleUpdateJob = (job) => { 
+
+  }
+
+  handleDeleteJob = (jobGUID) => { 
+    console.log('jobGUID',jobGUID)
+    this.setState({
+      jobs: this.state.jobs.filter(job => job.jobGUID !== jobGUID)
+    });
+  }
+
   render () {
     return (
       <div className="jobBoardWrapper">
@@ -45,8 +56,11 @@ class App extends React.Component {
         />
         <FilterContext.Provider value={this.state.filtration}>
           
-          <Table jobs={this.state.jobs.filter(job => job.jobName.includes(this.state.filtration.filterValue))}/>
-          
+          <Table 
+            jobs={this.state.jobs.filter(job => job.jobName.includes(this.state.filtration.filterValue))}
+            handleDeleteJobCallback={this.handleDeleteJob}
+            />
+
         </FilterContext.Provider>
       </div>
     )

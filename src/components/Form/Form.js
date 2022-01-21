@@ -27,14 +27,22 @@ class Form extends React.Component {
            ]
         }
     }
+    getPriorityIndex(priority) { 
+        switch(priority) {
+            case 'red': return '1'
+            case 'yellow': return '2'
+            case 'green': return '3'
+        }
+    }
 
     handleJobNameChange = (event) => { 
         this.setState({jobName: event.target.value});
     }
-
+ 
     handleJobPriorityChange = (event) => { 
         this.setState({
-            jobPriority: event.target.value
+            jobPriority: event.target.value,
+            selectedPriorityIndex: this.getPriorityIndex(event.target.value)
         });
     }
     generateUUID() { // Public Domain/MIT
