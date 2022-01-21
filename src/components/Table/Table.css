@@ -1,0 +1,32 @@
+table td { 
+    
+    text-align: left;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+}
+
+table { 
+    font-size: 16px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+table th { 
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.red td {
+    background: #aa0404;
+}
+.yellow td {
+    background: #e2e600;
+}
+.green td {
+    background: #04AA6D;
+}
