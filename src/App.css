@@ -28,3 +28,15 @@ input, select {
   content: "\00d7"; /* This will render the 'X' */
   font-size:40px;
 }
+
+.errorMessage {
+  width:auto;
+  display:block;
+  background-color: #fce4e4;
+  border: 1px solid #cf0609;
+  
+  color:rgb(241, 2, 2);
+  padding: 20px 30px;
+  margin-top:20px;
+  margin-bottom:20px;
+}

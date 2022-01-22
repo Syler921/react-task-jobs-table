@@ -13,7 +13,8 @@ class Form extends React.Component {
 
            jobName: "",
            jobPriority: '1',
-           selectedPriorityIndex:1
+           selectedPriorityIndex:1,
+           errorMsg:""
         }
     }
     getPriorityIndex(priority) { 
@@ -25,8 +26,16 @@ class Form extends React.Component {
         }
     }
 
-    handleJobNameChange = (event) => { 
-        this.setState({jobName: event.target.value});
+    handleJobNameChange = (event) => {
+        var inputValue = event.target.value;
+        const regex = /^[a-zA-Z0-9,.!? ]*$/;
+        const chars = inputValue.split('');
+        const char = chars.pop();
+        if (!regex.test(char)) {
+            inputValue = chars.join('');
+        }
+            
+        this.setState({jobName: inputValue});
     }
  
     handleJobPriorityChange = (event) => { 
@@ -39,6 +48,24 @@ class Form extends React.Component {
     
 
     submitForm = (event) => { 
+        if ( this.state.jobName == "") {
+            this.setState({
+                errorMsg:"Please enter job name."
+            })
+            return
+        }
+        else if ( this.state.jobName.length > 70) {
+            this.setState({
+                errorMsg:"Too long job name (max 70 symbols) !"
+            })
+            return
+        }
+        else { 
+            this.setState({
+                errorMsg:""
+            }) 
+        }
+
         var data = {
             jobGUID: generateUUID(),
             jobName:this.state.jobName,
@@ -48,20 +75,25 @@ class Form extends React.Component {
         this.props.handleCreateCallback(data)
     }
     
-    
+    showError(){
+        if ( this.state.errorMsg.length > 0) {
+            return <div className="errorMessage">{ this.state.errorMsg } </div>
+        }
+    }
     render(){ 
         
         return <div>
             
             <h3>Job:</h3>
-            <input className="jobNameInput" value={this.state.jobName} onChange={this.handleJobNameChange} />
+            <input pattern="[A-Za-z]" className="jobNameInput" value={this.state.jobName} onChange={this.handleJobNameChange} />
            
             <PriroritySelect 
                 handleJobPriorityChange={this.handleJobPriorityChange}
                 selectedPriorityIndex={this.state.selectedPriorityIndex}
 
             />
-            <div className="errorMessage"></div>
+            <br/>
+            {this.showError()}
 
             <button onClick={this.submitForm}>Create</button>
             
