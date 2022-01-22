@@ -6,7 +6,7 @@ class Popup extends React.Component {
     
     constructor(props){
         super(props)
-        console.log('this.props.job',this.props.job)
+        
         this.state = {
             jobPriority:this.props.job.jobPriority
         }
@@ -18,16 +18,6 @@ class Popup extends React.Component {
             jobPriority:e.target.value
         })
     }
-    
-    /*
-    getPriorityTypeByIndex(priority) { 
-        console.log(priority)
-        switch(priority) {
-            case 'Urgent': return '1'
-            case 'Regular': return '2'
-            case 'Trivial': return '3'
-        }
-    }*/
 
     render(){ 
         //console.log(this.props)
@@ -45,7 +35,7 @@ class Popup extends React.Component {
                     this.props.job.jobPriority = this.state.jobPriority
                     this.props.handleJobPriorityChange(this.props.job)
                     this.props.closePopupCallback()
-                    
+
                 }}>Update</button>
             </div>
         </div>,

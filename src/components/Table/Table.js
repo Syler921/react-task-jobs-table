@@ -12,6 +12,15 @@ class Table extends React.Component {
         //this.props.createStream(formValues)
     }
 
+    getPriorityTypeByIndex(priority) { 
+        console.log(priority)
+        switch(priority) {
+            case '1': return 'Urgent'
+            case '2': return 'Regular'
+            case '3': return 'Trivial'
+        }
+    }
+
     getRowColor(priority){
         switch(priority) {
             case '1': return 'red'
@@ -27,7 +36,7 @@ class Table extends React.Component {
             .map(job=>{
             return <tr className={this.getRowColor(job.jobPriority)} key={job.jobGUID}>
                     <td>{job.jobName}</td>
-                    <td>{job.jobPriority}</td>
+                    <td>{this.getPriorityTypeByIndex(job.jobPriority)}</td>
                     <td>
                         <button onClick={()=>{ this.props.handleUpdateJobCallback(job)}}>Edit</button>
                         <button onClick={()=>{ this.props.handleDeleteJobCallback(job.jobGUID)}}>Delete</button>
