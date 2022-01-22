@@ -25,7 +25,7 @@ class Table extends React.Component {
         switch(priority) {
             case '1': return 'red'
             case '2': return 'yellow'
-            case '3': return 'green'
+            case '3': return 'blue'
         }
             
     }

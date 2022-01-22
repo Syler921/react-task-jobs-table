@@ -22,7 +22,7 @@ class Form extends React.Component {
         switch(priority) {
             case 'red': return '1'
             case 'yellow': return '2'
-            case 'green': return '3'
+            case 'blue': return '3'
         }
     }
 
