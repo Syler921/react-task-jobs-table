@@ -18,7 +18,7 @@ class Form extends React.Component {
         }
     }
     getPriorityIndex(priority) { 
-        console.log(priority)
+       
         switch(priority) {
             case 'red': return '1'
             case 'yellow': return '2'
@@ -71,7 +71,7 @@ class Form extends React.Component {
             jobName:this.state.jobName,
             jobPriority:this.state.jobPriority
         }
-        console.warn('data--',data)
+        
         this.props.handleCreateCallback(data)
     }
     

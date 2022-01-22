@@ -13,7 +13,7 @@ class Table extends React.Component {
     }
 
     getPriorityTypeByIndex(priority) { 
-        console.log(priority)
+        
         switch(priority) {
             case '1': return 'Urgent'
             case '2': return 'Regular'

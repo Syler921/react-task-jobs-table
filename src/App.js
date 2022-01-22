@@ -55,7 +55,7 @@ class App extends React.Component {
   }
 
   handleUpdateJob = (updatedJob) => { 
-    console.log('from app',updatedJob)
+   
     const newState = this.state.jobs.map(job => {
       if ( job.jobGUID === updatedJob.jobGUID ){
         job.jobPriority = updatedJob.jobPriority;
@@ -65,7 +65,7 @@ class App extends React.Component {
   }
 
   handleDeleteJob = (jobGUID) => { 
-    console.log('jobGUID',jobGUID)
+    
     this.setState({
       jobs: this.state.jobs.filter(job => job.jobGUID !== jobGUID)
     });

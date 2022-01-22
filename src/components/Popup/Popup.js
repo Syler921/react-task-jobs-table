@@ -13,7 +13,7 @@ class Popup extends React.Component {
     }
 
     handleJobPriorityChange = (e) => {
-        console.warn(e.target.value)
+        
         this.setState({
             jobPriority:e.target.value
         })
