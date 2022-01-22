@@ -22,7 +22,9 @@ class Table extends React.Component {
     }
     
     renderJobs(){
-        return this.props.jobs.map(job=>{
+        return this.props.jobs
+            .sort((a, b) => a.jobPriority > b.jobPriority ? 1 : -1)
+            .map(job=>{
             return <tr className={this.getRowColor(job.jobPriority)} key={job.jobGUID}>
                     <td>{job.jobName}</td>
                     <td>{job.jobPriority}</td>
