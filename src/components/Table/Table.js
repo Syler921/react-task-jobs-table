@@ -6,6 +6,7 @@ import SearchBar from '../SearchBar/SearchBar'
 class Table extends React.Component {
     constructor(props) {
         super(props);
+        console.log('test')
     }
 
     onSubmit = (formValues) => {
